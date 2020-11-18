@@ -13,7 +13,7 @@ if os.path.exists("settings_dict.json"):
 		# Kill the process to avoid constant reloads
 		os._exit(3)
 else:
-	settings_dict = {"token":""}
+	settings_dict = {"token":"Nzc1NTM4NTA2MzQ4MTAxNjcx.X6nyhA.0MDz2mN10tbQ7xpd16AHZtXnlIs"}
 	print("Migrating .txt files to settings_dict.json...")
 	for x in ["prefix.txt","corpSiteAuth.txt","token.txt","igdbKey.txt","weather.txt","discogs.txt","currency.txt"]:
 		if not os.path.exists(x): continue # Didn't find it
