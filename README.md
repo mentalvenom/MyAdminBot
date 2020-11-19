@@ -3,10 +3,6 @@ A Moderation and General Discord Bot for Server Management and Fun!
 
 ***
 
-You'll want to replace the values with your own.  The `prefix` key can be omitted, and the bot will fallback on its default `$` prefix.
-
-***
-
 # Command List
 
 A list of cogs, commands, and descriptions:
