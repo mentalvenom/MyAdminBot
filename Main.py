@@ -13,7 +13,7 @@ if os.path.exists("settings_dict.json"):
 		# Kill the process to avoid constant reloads
 		os._exit(3)
 else:
-	settings_dict = {"token":"Nzc1NTM4NTA2MzQ4MTAxNjcx.X6nyhA.0MDz2mN10tbQ7xpd16AHZtXnlIs"}
+	settings_dict = {"token":"Nzc1NTM4NTA2MzQ4MTAxNjcx.X6nyhA.aMPsediAu76ua-0ZPpqA4xGuTVw"}
 	print("Migrating .txt files to settings_dict.json...")
 	for x in ["prefix.txt","corpSiteAuth.txt","token.txt","igdbKey.txt","weather.txt","discogs.txt","currency.txt"]:
 		if not os.path.exists(x): continue # Didn't find it
@@ -32,13 +32,13 @@ async def get_prefix(bot, message):
 	try:
 		# Set the settings var up
 		settings = bot.get_cog("Settings")
-		serverPrefix = settings.getServerStat(message.guild, "Prefix")
+		serverPrefix = settings.getServerStat(message.guild, "prefix")
 	except Exception:
 		serverPrefix = None
 
 	if not serverPrefix:
 		# No custom prefix - use the default
-		serverPrefix = settings_dict.get("prefix","$") # prefix
+		serverPrefix = settings_dict.get("prefix","+") # prefix
 	return (serverPrefix, "<@!{}> ".format(bot.user.id), "<@{}> ".format(bot.user.id))
 
 # This should be the main soul of the bot - everything should load from here
