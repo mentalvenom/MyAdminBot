@@ -135,7 +135,7 @@ class RoleManager:
 class Settings(commands.Cog):
 	"""The Doorway To The Server Settings"""
 	# Let's initialize with a file location
-	def __init__(self, bot, prefix = "+", file : str = None):
+	def __init__(self, bot, prefix = "$", file : str = None):
 		if file == None:
 			# We weren't given a file, default to ./Settings.json
 			file = "Settings.json"
