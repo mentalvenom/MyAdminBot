@@ -19,7 +19,7 @@ class RateLimit(commands.Cog):
 		self.bot = bot
 		self.settings = settings
 		self.commandCooldown = 5 # 5 seconds between commands - placeholder, overridden by settings
-		self.maxCooldown = 30 # 10 seconds MAX between commands for cooldown
+		self.maxCooldown = 30 # 30 seconds MAX between commands for cooldown
 		
 	def canRun( self, firstTime, threshold ):
 		# Check if enough time has passed since the last command to run another
