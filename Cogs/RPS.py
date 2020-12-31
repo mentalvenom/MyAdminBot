@@ -3,38 +3,64 @@ from discord.ext import commands
 import random
 
 def setup(bot):
-	# Add the bot
-	bot.add_cog(RPS(bot))
-	
-class RPS(commands.Cog):
-	
-	def __init__(self, bot):
-		self.bot = bot
+    bot.add_cog(RPS(bot))
 
-	@commands.command(description="Rock Paper Scissors")
-	async def rps(self, msg: str):
-		"""Rock paper scissors. Example : /rps Rock if you want to use the rock."""
-		print('Rock Paper Scissors!')
-		t = ["rock", "paper", "scissors"]
-		computer = t[random.randint(0, 2)]
-		player = msg.lower()
-		print(msg)
-		if player == computer:
-			await self.bot.say("Tie!")
-		elif player == "rock":
-		    if computer == "paper":
-			await self.bot.say("You lose! {0} covers {1}".format(computer, player))
-		    else:
-			await self.bot.say("You win! {0} smashes {1}".format(player, computer))
-		elif player == "paper":
-		    if computer == "scissors":
-			await self.bot.say("You lose! {0} cut {1}".format(computer, player))
-		    else:
-			await self.bot.say("You win! {0} covers {1}".format(player, computer))
-		elif player == "scissors":
-		    if computer == "rock":
-			await self.bot.say("You lose! {0} smashes {1}".format(computer, player))
-		    else:
-			await self.bot.say("You win! {0} cut {1}".format(player, computer))
-		else:
-			await self.bot.say("That's not a valid play. Check your spelling!")
+class RPS(commands.Cog):
+
+    def __init__(self, bot):
+        self.bot = bot
+
+@commands.command()
+async def rps(self, ctx, *, player_input):
+	choices = ['Rock', 'Paper', 'Scissors']
+	bot_input = random.choice(choices)
+
+	if player_input.lower() == bot_input.lower():
+	    embed = discord.Embed(title = "Rock, Paper, Scissors", description = " ")
+	    embed.add_field(name = "User's Choice", value = f"{player_input}", inline = True)
+	    embed.add_field(name = "Bot's Choice", value = f"{bot_input}", inline = True)
+	    embed.add_field(name = "Result", value = "Tie!") 
+	    await ctx.send(embed = embed)
+	elif player_input.lower() == "rock" and bot_input.lower() == "scissors":
+	    embed = discord.Embed(title = "Rock, Paper, Scissors", description = " ")
+	    embed.add_field(name = "User's Choice", value = f"{player_input}")
+	    embed.add_field(name = "Bot's Choice", value = f"{bot_input}")
+	    embed.add_field(name = "Result", value = "You win! :)")
+	    await ctx.send(embed = embed)
+	elif player_input.lower() == "scissors" and bot_input.lower() == "rock":
+	    embed = discord.Embed(title = "Rock, Paper, Scissors", description = " ")
+	    embed.add_field(name = "User's Choice", value = f"{player_input}", inline = True)
+	    embed.add_field(name = "Bot's Choice", value = f"{bot_input}", inline = True)
+	    embed.add_field(name = "Result", value = "You lose.")
+	    await ctx.send(embed = embed)
+	elif player_input.lower() == "paper" and bot_input.lower() == "rock":
+	    embed = discord.Embed(title = "Rock, Paper, Scissors", description = " ")
+	    embed.add_field(name = "User's Choice", value = f"{player_input}", inline = True)
+	    embed.add_field(name = "Bot's Choice", value = f"{bot_input}", inline = True)
+	    embed.add_field(name = "Result", value = "You win! :)")
+	    await ctx.send(embed = embed)
+	elif player_input.lower() == "rock" and bot_input.lower() == "paper":
+	    embed = discord.Embed(title = "Rock, Paper, Scissors", description = " ")
+	    embed.add_field(name = "User's Choice", value = f"{player_input}", inline = True)
+	    embed.add_field(name = "Bot's Choice", value = f"{bot_input}", inline = True)
+	    embed.add_field(name = "Result", value = "You lose.")
+	    await ctx.send(embed = embed)
+	elif player_input.lower() == "scissors" and bot_input.lower() == "paper":
+	    embed = discord.Embed(title = "Rock, Paper, Scissors", description = " ")
+	    embed.add_field(name = "User's Choice", value = f"{player_input}", inline = True)
+	    embed.add_field(name = "Bot's Choice", value = f"{bot_input}", inline = True)
+	    embed.add_field(name = "Result", value = "You win! :)")
+	    await ctx.send(embed = embed)
+	elif player_input.lower() == "paper" and bot_input.lower() == "scissors":
+	    embed = discord.Embed(title = "Rock, Paper, Scissors", description = " ")
+	    embed.add_field(name = "User's Choice", value = f"{player_input}", inline = True)
+	    embed.add_field(name = "Bot's Choice", value = f"{bot_input}", inline = True)
+	    embed.add_field(name = "Result", value = "You lose.")
+	    await ctx.send(embed = embed)
+	else:
+	    await ctx.send(f"{ctx.author.mention} Be sure to choose an option. Rock, Paper, or Scissors?")
+
+	@rps.error
+	async def rps_error(self, ctx, error):
+	if isinstance(error, (commands.MissingRequiredArgument)):
+	    await ctx.send(f"{ctx.author.mention} Be sure to choose an option. Rock, Paper, or Scissors? Try: `;rps <option>`.")
