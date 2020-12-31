@@ -62,5 +62,5 @@ async def rps(self, ctx, *, player_input):
 
 	@rps.error
 	async def rps_error(self, ctx, error):
-	if isinstance(error, (commands.MissingRequiredArgument)):
-	    await ctx.send(f"{ctx.author.mention} Be sure to choose an option. Rock, Paper, or Scissors? Try: `;rps <option>`.")
+		if isinstance(error, (commands.MissingRequiredArgument)):
+	    		await ctx.send(f"{ctx.author.mention} Be sure to choose an option. Rock, Paper, or Scissors? Try: `;rps <option>`.")
