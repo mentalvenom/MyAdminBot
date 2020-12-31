@@ -1,8 +1,13 @@
+
+import discord
+from discord.ext import commands
+import random
+
 def setup(bot):
 	# Add the bot
 	bot.add_cog(RPS(bot))
 	
-class Turret(commands.Cog):
+class RPS(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
@@ -11,10 +16,8 @@ class Turret(commands.Cog):
 	    async def rps(self, msg: str):
 		"""Rock paper scissors. Example : /rps Rock if you want to use the rock."""
 		print('Rock Paper Scissors!')
-		# Les options possibles
 		t = ["rock", "paper", "scissors"]
-		# random choix pour le bot
-		computer = t[randint(0, 2)]
+		computer = t[random.randint(0, 2)]
 		player = msg.lower()
 		print(msg)
 		if player == computer:
