@@ -1,4 +1,3 @@
-
 import discord
 from discord.ext import commands
 import random
@@ -8,12 +7,12 @@ def setup(bot):
 	bot.add_cog(RPS(bot))
 	
 class RPS(commands.Cog):
-
-    def __init__(self, bot):
-        self.bot = bot
+	
+	def __init__(self, bot):
+		self.bot = bot
 
 	@commands.command(description="Rock Paper Scissors")
-	    async def rps(self, msg: str):
+	async def rps(self, msg: str):
 		"""Rock paper scissors. Example : /rps Rock if you want to use the rock."""
 		print('Rock Paper Scissors!')
 		t = ["rock", "paper", "scissors"]
