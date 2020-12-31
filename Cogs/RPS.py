@@ -20,7 +20,7 @@ class RPS(commands.Cog):
 		player = msg.lower()
 		print(msg)
 		if player == computer:
-		    await self.bot.say("Tie!")
+			await self.bot.say("Tie!")
 		elif player == "rock":
 		    if computer == "paper":
 			await self.bot.say("You lose! {0} covers {1}".format(computer, player))
@@ -37,4 +37,4 @@ class RPS(commands.Cog):
 		    else:
 			await self.bot.say("You win! {0} cut {1}".format(player, computer))
 		else:
-		    await self.bot.say("That's not a valid play. Check your spelling!")
+			await self.bot.say("That's not a valid play. Check your spelling!")
