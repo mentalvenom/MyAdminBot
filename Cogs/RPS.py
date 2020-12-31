@@ -51,7 +51,7 @@ class RPS(commands.Cog):
 
     @commands.command(name="rps", aliases=['Rps', 'rPs', 'rpS', 'RPs', 'RpS', 'rPS', 'RPS'])
     async def _rps(self, ctx: commands.Context, *, against: discord.Member = None):
-         """Play a game of Rock, Paper, Scissors!"""
+        """Play a game of Rock, Paper, Scissors!"""
         if against is None:
             await self.against_bot(ctx.author, ctx.channel)
         else:
