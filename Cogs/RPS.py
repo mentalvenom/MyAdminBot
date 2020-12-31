@@ -56,7 +56,7 @@ class RPS(commands.Cog):
         else:
             emb = discord.Embed(
                 title="✊✋✌ Rock Paper Scissor", 
-                description=f"**{ctx.message.author.name}** wants to challange you, will you Accept?", 
+                description=f"**{ctx.message.author.name}** wants to challenge you, will you accept?", 
                 colour=WHITE
                 )
             emb.set_footer(text="Type 'Y' to accept or 'N' to abort.")
@@ -80,7 +80,7 @@ class RPS(commands.Cog):
                     await hm.delete()
                     await ctx.send("*Request Timeout.*")
             else:
-                await ctx.send("You can't Challange Bot, that's Impossibruh :v")
+                await ctx.send("You can't challenge AdminBot :rofl:")
 
     # Others
 
@@ -111,7 +111,7 @@ class RPS(commands.Cog):
             # Announce the Winner
             descript = f"```{person.name} : {self.rps_element[int(replied.content)]}\nMe : {self.rps_element[int(bot_choose)]}\n{winner}!```"
             emb = discord.Embed(
-                title="✊✋✌ Rock Paper Scissor", 
+                title="✊✋✌ Rock, Paper, Scissors", 
                 description=descript, 
                 colour=WHITE
                 )
@@ -119,7 +119,7 @@ class RPS(commands.Cog):
 
         except asyncio.TimeoutError:
             await msg.delete()
-            await channel.send(content="*RPS Game Timeout :v*")
+            await channel.send(content="*RPS Game Timeout*")
 
     async def begin(self, p1 : discord.User, p2 : discord.User, channel : discord.TextChannel):
         try:
