@@ -13,9 +13,9 @@ class DickSize(commands.Cog):
     @commands.command(aliases=['penissize', 'sizeofdick', 'sizeofpenis', 'cocksize', 'sizeofcock'])
     async def dicksize(self, ctx):
         """ How large is your dick? """
-        if message.author.id = 307243110998605824:
+        if ctx.message.author.id = 307243110998605824:
           size = 12
-        elif message.author.id = 440231799533338634:
+        elif ctx.message.author.id = 440231799533338634:
           size = 12
         else:
           size = random.randint(3,10)
