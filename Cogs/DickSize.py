@@ -10,13 +10,13 @@ class DickSize(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(aliases=['penissize', 'sizeofdick', 'sizeofpenis', 'cocksize', 'sizeofcock'])
+    @commands.command()
     async def dicksize(self, ctx):
-        """ How large is your dick? """
-        if ctx.message.author.id = 307243110998605824:
-          size = 12
-        elif ctx.message.author.id = 440231799533338634:
-          size = 12
+        """How large is your dick? Find out!"""
+        if ctx.message.author.id==440231799533338634:
+            size = 12
+        elif ctx.message.author.id==307243110998605824:
+            size = 12
         else:
-          size = random.randint(3,10)
+            size = random.randint(3,10)
         await ctx.send(f"{ctx.author.name} has a **{size}-inch** dick!")
