@@ -22,6 +22,7 @@ class CountWords(commands.Cog):
               embed.set_footer(text="tbh i don't care")
               await message.channel.send(embed=embed)
               bot.countWords += 1
+          await bot.process_commands(message)
         @commands.command()
         async def countkek(ctx):
           """Counts the amount of times kek is said"""
