@@ -24,6 +24,7 @@ class CountWords(commands.Cog):
           bot.countWords += 1
         @bot.command()
         async def countkek(ctx):
+          """Counts the amount of times kek is said"""
           embed=discord.Embed(title="kek counter", description="kek was said {} times!".format(ctx.bot.countWords) , color=0x00ffee)
           embed.set_thumbnail(url="https://emoji.gg/assets/emoji/4667_great_shame.png")
           embed.set_footer(text="tbh i don't care")
