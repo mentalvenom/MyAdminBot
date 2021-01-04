@@ -21,10 +21,10 @@ class CountWords(commands.Cog):
           embed=discord.Embed(title="kek counter", description=f"{user} just said ***kek***", color=0x00ffee)
           embed.set_footer(text="tbh i don't care")
           await message.channel.send(embed=embed)
-          bot.message_counter += 1
+          bot.countWords += 1
         @bot.command()
         async def bruh(ctx):
-          embed=discord.Embed(title="kek counter", description="kek was said {} times!".format(ctx.bot.message_counter) , color=0x00ffee)
+          embed=discord.Embed(title="kek counter", description="kek was said {} times!".format(ctx.bot.countWords) , color=0x00ffee)
           embed.set_thumbnail(url="https://emoji.gg/assets/emoji/4667_great_shame.png")
           embed.set_footer(text="tbh i don't care")
           await ctx.send(embed=embed)
