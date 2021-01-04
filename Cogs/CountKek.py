@@ -23,7 +23,7 @@ class CountKek(commands.Cog):
                 bot.message_counter += 1
             await bot.process_commands(message)
 
-        @commands.command()
+        @bot.command()
         async def countkek(ctx):
             embed=discord.Embed(title="Kek Counter", description="Kek has been said {} times!".format(ctx.bot.message_counter) , color=0x00fffb)
             await ctx.send(embed=embed)
