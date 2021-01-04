@@ -14,7 +14,7 @@ class CountWords(commands.Cog):
         
         bot.countWords = 0
         
-        @commands.event
+        @bot.event
         async def on_message(message):
           user = message.author
           if message.content.startswith("kek"):
@@ -22,7 +22,7 @@ class CountWords(commands.Cog):
               embed.set_footer(text="tbh i don't care")
               await message.channel.send(embed=embed)
               bot.countWords += 1
-        @bot.command()
+        @commands.command()
         async def countkek(ctx):
           """Counts the amount of times kek is said"""
           embed=discord.Embed(title="kek counter", description="kek was said {} times!".format(ctx.bot.countWords) , color=0x00ffee)
