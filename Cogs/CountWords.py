@@ -16,7 +16,7 @@ class CountWords(commands.Cog):
         
         @commands.event
         async def on_message(message):
-        user = message.author
+          user = message.author
           if message.content.startswith("kek"):
           embed=discord.Embed(title="kek counter", description=f"{user} just said ***kek***", color=0x00ffee)
           embed.set_footer(text="tbh i don't care")
