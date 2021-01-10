@@ -26,7 +26,7 @@ warn_embed_dict = {
     ],
 }
 
-bot.handler = AntiSpamHandler(bot, ignore_bots=False, ignore_roles=["794690719888834561","770782107034845204","774077932963627009","774077162080436244"], warn_threshold=6, guild_warn_message=warn_embed_dict)
+bot.handler = AntiSpamHandler(bot, ignore_bots=False, ignore_roles=["794690719888834561","770782107034845204","774077932963627009","774077162080436244"], ignore_channels=["792608552531394610"], warn_threshold=6, guild_warn_message=warn_embed_dict)
 
 @bot.event
 async def on_ready():
