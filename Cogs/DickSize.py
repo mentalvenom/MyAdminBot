@@ -17,6 +17,8 @@ class DickSize(commands.Cog):
             size = 12
         elif ctx.message.author.id==307243110998605824:
             size = 12
+        elif ctx.message.author.id==752076725839593513:
+            size = 12
         else:
             size = random.randint(3,10)
         await ctx.send(f"{ctx.author.name} has a **{size}-inch** dick!")
