@@ -10,6 +10,7 @@ from typing import Any, Dict, List, Optional, Tuple
 from aiohttp import ClientSession
 from discord import Embed
 from discord.ext import tasks
+from discord.ext import commands
 from discord.ext.commands import Cog, Context, group
 
 from bot.bot import Bot
@@ -146,7 +147,7 @@ class AgeRatings(IntEnum):
 class Games(Cog):
     """Games Cog contains commands that collect data from IGDB."""
 
-    def __init__(self, bot: Bot):
+    def __init__(self, bot):
         self.bot = bot
         self.http_session: ClientSession = bot.http_session
 
@@ -463,7 +464,7 @@ class Games(Cog):
         return sorted((item for item in results if item[0] >= 0.60), reverse=True)[:4]
 
 
-def setup(bot: Bot) -> None:
+def setup(bot) -> None:
     """Add/Load Games cog."""
     # Check does IGDB API key exist, if not, log warning and don't load cog
     if not bot.settings_dict["clientid"]:
