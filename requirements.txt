@@ -54,4 +54,4 @@ discord-anti-spam==0.5.1
 fuzzywuzzy==0.18.0
 python-levenshtein==0.12.0
 arrow==0.17.0
-async-rediscache=0.2.0
+async-rediscache==0.2.0
