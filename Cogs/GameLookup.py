@@ -172,7 +172,7 @@ def setup(bot):
         print("Missing IGDB API - skipping")
         return
     # Do some simple setup
-    if not bot.settings_dict.get("igdbkey",None):
+    if not bot.settings_dict.get("clientid",None):
         print("Missing idgbkey - skipping.")
         return
     settings = bot.get_cog("Settings")
