@@ -4,6 +4,7 @@ import socket
 from typing import Optional
 
 import discord
+import aiodns
 from aiohttp import AsyncResolver, ClientSession, TCPConnector
 from async_rediscache import RedisSession
 from discord import DiscordException, Embed
@@ -28,9 +29,10 @@ class Bot(commands.Bot):
     name = constants.Client.name
 
     def __init__(self, redis_session: RedisSession, **kwargs):
+        loop = asyncio.get_event_loop()
         super().__init__(**kwargs)
         self.http_session = ClientSession(
-            connector=TCPConnector(resolver=AsyncResolver(), family=socket.AF_INET)
+            connector=TCPConnector(resolver = aiodns.DNSResolver(loop=loop), family=socket.AF_INET)
         )
         self._guild_available = asyncio.Event()
         self.redis_session = redis_session
