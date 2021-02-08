@@ -6,6 +6,7 @@ from   Cogs import Settings, Message, UserTime
 
 try:
     from igdb.wrapper import IGDBWrapper
+    from igdb.igdbapi_pb2 import GameResult
     LOADED = True
 except:
     # Missing the api
@@ -174,7 +175,7 @@ def setup(bot):
     if not bot.settings_dict.get("igdbkey",None):
         print("Missing idgbkey - skipping.")
         return
-    key = IGDBWrapper("yk2yumlv7jz5idkzpht9jhqhwzc9un", "xixfuiok84802lg5r0rrz7vckhzbcn")
+    key = IGDBWrapper(bot.settings_dict["clientid","apptoken"])
     # Add the bot and deps
     bot.add_cog(GameLookup(bot, key))
 
@@ -187,7 +188,7 @@ class GameLookup(commands.Cog):
     @commands.command()
     async def gamelookup(self, ctx, *,game: str):
         igdb1 = igdb(self.key)
-        result = igdb1.games({
+        result = igdb1.api_request({
             'search': "{}".format(game),
             'fields': ['name','game',
                 'first_release_date','summary',
