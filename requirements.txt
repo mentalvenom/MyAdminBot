@@ -22,6 +22,7 @@ httpcore==0.9.1
 httpx==0.13.3
 hyperframe==5.2.0
 idna==2.10
+igdb-api-v4==0.0.3
 igdb-api-python==1.0
 lxml==4.6.1
 mechanize==0.4.5
