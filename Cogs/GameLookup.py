@@ -172,13 +172,9 @@ def setup(bot):
         print("Missing IGDB API - skipping")
         return
     # Do some simple setup
-    if not bot.settings_dict.get("clientid",None):
-        print("Missing idgbkey - skipping.")
-        return
-    settings = bot.get_cog("Settings")
-    key = IGDBWrapper(bot.settings_dict["clientid","apptoken"])
+    key = IGDBWrapper("clientid","apptoken")
     # Add the bot and deps
-    bot.add_cog(GameLookup(bot, settings, key))
+    bot.add_cog(GameLookup(bot, key))
 
 class GameLookup(commands.Cog):
     def __init__(self, bot, settings, key):
