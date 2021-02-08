@@ -142,8 +142,8 @@ redis_session = RedisSession(
     use_fakeredis=constants.RedisConfig.use_fakeredis,
     global_namespace="sir-lancebot"
 )
-loop = asyncio.get_event_loop()
-await loop.run_until_complete(redis_session.connect())
+loop = await asyncio.get_event_loop()
+loop.run_until_complete(redis_session.connect())
 
 bot = Bot(
     redis_session=redis_session,
