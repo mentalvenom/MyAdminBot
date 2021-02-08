@@ -143,7 +143,7 @@ redis_session = RedisSession(
     global_namespace="sir-lancebot"
 )
 loop = asyncio.get_event_loop()
-loop.run_until_complete(redis_session.connect())
+await loop.run_until_complete(redis_session.connect())
 
 bot = Bot(
     redis_session=redis_session,
