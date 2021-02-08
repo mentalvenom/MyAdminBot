@@ -5,7 +5,7 @@ from   discord.ext import commands
 from   Cogs import Settings, Message, UserTime
 
 try:
-    from igdb_api_python.igdb import igdb
+    from igdb.wrapper import IGDBWrapper
     LOADED = True
 except:
     # Missing the api
@@ -174,10 +174,9 @@ def setup(bot):
     if not bot.settings_dict.get("igdbkey",None):
         print("Missing idgbkey - skipping.")
         return
-    key = bot.settings_dict["igdbkey"]
+    key = IGDBWrapper("yk2yumlv7jz5idkzpht9jhqhwzc9un", "xixfuiok84802lg5r0rrz7vckhzbcn")
     # Add the bot and deps
-    settings = bot.get_cog("Settings")
-    bot.add_cog(GameLookup(bot, settings, key))
+    bot.add_cog(GameLookup(bot, key))
 
 class GameLookup(commands.Cog):
     def __init__(self, bot, settings, key):
