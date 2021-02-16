@@ -14,7 +14,7 @@ def setup(bot):
 class ChatterBot(commands.Cog):
 
 	# Init with the bot reference, and a reference to the settings var
-	def __init__(self, bot, settings, prefix : str = '$'):
+	def __init__(self, bot, settings, prefix : str = '+'):
 		self.bot = bot
 		self.settings = settings
 		self.prefix = prefix
@@ -22,7 +22,7 @@ class ChatterBot(commands.Cog):
 		self.botDir = 'standard'
 		self.botBrain = 'standard.brn'
 		self.botList = []
-		self.ownerName = "CorpNewt"
+		self.ownerName = "Replitcode"
 		self.ownerGender = "man"
 		self.timeout = 3
 		self.chatBot = Kernel()
