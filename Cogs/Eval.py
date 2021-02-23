@@ -11,8 +11,8 @@ class Eval(commands.Cog):
 
     @bot.command(name="eval")
     @commands.is_owner()
-    """Runs Code in Discord"""
     async def eval_fn(ctx, *, code):
+        """Runs Code in Discord"""
         language_specifiers = ["python", "py", "javascript", "js", "html", "css", "php", "md", "markdown", "go", "golang", "c", "c++", "cpp", "c#", "cs", "csharp", "java", "ruby", "rb", "coffee-script", "coffeescript", "coffee", "bash", "shell", "sh", "json", "http", "pascal", "perl", "rust", "sql", "swift", "vim", "xml", "yaml"]
         loops = 0
         while code.startswith("`"):
