@@ -9,7 +9,7 @@ class Eval(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @bot.command(name="eval")
+    @commands.command(name="eval")
     @commands.is_owner()
     async def eval(ctx, *, code):
         """Runs Code in Discord"""
@@ -32,10 +32,10 @@ class Eval(commands.Cog):
         code = "\n".join(f"    {i}" for i in code.splitlines()) #Adds an extra layer of indentation
         code = f"async def eval_expr():\n{code}" #Wraps the code inside an async function
         def send(text): #Function for sending message to discord if code has any usage of print function
-            bot.loop.create_task(ctx.send(text))
+            self.bot.loop.create_task(ctx.send(text))
         env = {
-            "bot": bot,
-            "client": bot,
+            "bot": self.bot,
+            "client": self.bot,
             "ctx": ctx,
             "print": send,
             "_author": ctx.author,
