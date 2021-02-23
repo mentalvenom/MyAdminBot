@@ -11,7 +11,7 @@ class Eval(commands.Cog):
 
     @commands.command(name="eval")
     @commands.is_owner()
-    async def eval_fn(ctx, *, code):
+    async def exec(ctx, *, code):
         """Runs Code in Discord"""
         language_specifiers = ["python", "py", "javascript", "js", "html", "css", "php", "md", "markdown", "go", "golang", "c", "c++", "cpp", "c#", "cs", "csharp", "java", "ruby", "rb", "coffee-script", "coffeescript", "coffee", "bash", "shell", "sh", "json", "http", "pascal", "perl", "rust", "sql", "swift", "vim", "xml", "yaml"]
         loops = 0
